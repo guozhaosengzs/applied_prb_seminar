@@ -46,7 +46,6 @@ def viterbi(A, O, B, pi, HS, dict):
     www.cs.jhu.edu/~langmea/resources/lecture_notes/hidden_markov_models.pdf
     """
 
-
 def main():
     with open("dna_sequence.txt", 'r') as f:
         string = f.read().splitlines()[0]
@@ -66,7 +65,10 @@ def main():
     gene_map = np.concatenate((np.array(genome).reshape(1,200), np.array(
         path).reshape(1,200)), axis = 0)
 
-    print(gene_map)
+    result = [gene_map[0][i] if gene_map[1][i] == '1' else '-' for i in range(200)]
+    result = ''.join(result)
+
+    print(str(result))
 
 
 
