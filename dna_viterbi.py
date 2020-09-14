@@ -43,6 +43,7 @@ def viterbi(A, O, B, pi, HS, dict):
 
     """
     Citation:
+    https://web.stanford.edu/~jurafsky/slp3/
     www.cs.jhu.edu/~langmea/resources/lecture_notes/hidden_markov_models.pdf
     """
 
@@ -66,11 +67,11 @@ def main():
         path).reshape(1,200)), axis = 0)
 
     result = [gene_map[0][i] if gene_map[1][i] == '1' else '-' for i in range(200)]
-    result = ''.join(result)
-
-    print(str(result))
+    result_str = ''.join(result)
 
 
+    print('Gene composition in nucelotides:', 1 - result.count('-')/200)
+    print(result_str)
 
 
 if __name__ == '__main__':
